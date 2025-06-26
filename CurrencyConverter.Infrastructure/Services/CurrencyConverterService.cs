@@ -8,7 +8,7 @@ public class CurrencyConverterService : ICurrencyConverter
     public static CurrencyConverterService Instance => _instance.Value;
 
     private readonly ReaderWriterLockSlim _lock = new();
-    private readonly Dictionary<string, Dictionary<string, double>> _conversionRates = new();
+    private readonly Dictionary<string, Dictionary<string, double>> _conversionRates = [];
 
     private CurrencyConverterService()
     {
@@ -38,7 +38,7 @@ public class CurrencyConverterService : ICurrencyConverter
                 throw new InvalidOperationException($"Conversion from {fromCurrency} to {toCurrency} is not possible.");
 
             double totalAmount = amount;
-            for (int i = 0; i < path.Count; i++)
+            for (int i = 0; i < path.Count -1; i++)
             {
                 var from = path[i];
                 var to = path[i + 1];
@@ -71,6 +71,11 @@ public class CurrencyConverterService : ICurrencyConverter
                     _conversionRates[from] = new Dictionary<string, double>();
 
                 _conversionRates[from][to] = rate;
+
+                if (!_conversionRates.ContainsKey(to))
+                    _conversionRates[to] = new Dictionary<string, double>();
+
+                _conversionRates[to][from] = 1.0 /rate;  
             }
         }
         finally
@@ -81,7 +86,7 @@ public class CurrencyConverterService : ICurrencyConverter
 
     private List<string>? FindShortestPath(string from, string to)
     {
-        if (_conversionRates.ContainsKey(from)) return null;
+        if (!_conversionRates.ContainsKey(from)) return null;
 
         var visited = new HashSet<string>();
         var queue = new Queue<List<string>>();
@@ -98,6 +103,9 @@ public class CurrencyConverterService : ICurrencyConverter
             if (!_conversionRates.ContainsKey(current)) continue;
             foreach (var next in _conversionRates[current].Keys)
             {
+                if (visited.Contains(next))
+                    continue;
+
                 var newPath = new List<string>(path) { next };
                 queue.Enqueue(newPath);
             }

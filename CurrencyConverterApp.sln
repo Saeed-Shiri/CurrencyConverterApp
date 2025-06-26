@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.36105.23 d17.13
+VisualStudioVersion = 17.13.36105.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.Application", "CurrencyConverter.Application\CurrencyConverter.Application.csproj", "{3C77F906-F658-42C4-B8FB-FE412E471CDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.Infrastructure", "CurrencyConverter.Infrastructure\CurrencyConverter.Infrastructure.csproj", "{D4C2B4E3-2A11-43E6-A7D5-B69D4FA34B35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.ConsoleApp", "CurrencyConverter.ConsoleApp\CurrencyConverter.ConsoleApp.csproj", "{40ADE049-ABFA-4CA7-B6CA-3C48EF838FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.Tests", "CurrencyConverter.Tests\CurrencyConverter.Tests.csproj", "{CD15900A-B51F-4992-AB41-76B5E5848D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{40ADE049-ABFA-4CA7-B6CA-3C48EF838FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40ADE049-ABFA-4CA7-B6CA-3C48EF838FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40ADE049-ABFA-4CA7-B6CA-3C48EF838FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD15900A-B51F-4992-AB41-76B5E5848D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD15900A-B51F-4992-AB41-76B5E5848D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD15900A-B51F-4992-AB41-76B5E5848D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD15900A-B51F-4992-AB41-76B5E5848D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
